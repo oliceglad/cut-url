@@ -1,1 +1,8 @@
-"Модуль url_request — функции для работы с запросами к веб-страницам."
+import requests
+
+def check_url(url):
+    try:
+        response = requests.head(url, allow_redirects=True)
+        return response.status_code
+    except requests.RequestException:
+        return None
